@@ -40,7 +40,7 @@ PySocks==1.6.8
 ```
 
 ## 三、项目架构
-![avatar](spider_tips/爬虫架构图.png)
+![avatar](spider_tips/spider_framework.png)
 ### 1.项目子系统
 #### vps系统
 ##### 主要功能

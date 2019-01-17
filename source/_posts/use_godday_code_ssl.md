@@ -1,16 +1,19 @@
 ---
 title: 用godaddy的SSL代码证书给exe文件签名
 date: 2019-01-17 20:04:46
-tags: 教程
+tags: [godaddy,ssl,exe,签名]
+categories: 教程
+toc: true
+comment: true
 ---
 
-## 前期准备
+## 一、前期准备
 1. git
 2. openssl
 3. CA根证书
 4. Signtool([Signtool介绍和下载传送门](https://docs.microsoft.com/en-us/windows/desktop/seccrypto/signtool "Signtool安装传送门"))
 
-## 生成CSR
+## 二、生成CSR
 [CSR百度百科传送门](https://baike.baidu.com/item/CSR/5195886 "CSR")
 
 1.打开git bash
@@ -40,7 +43,7 @@ openssl req -new -SHA256 -newkey rsa:2048 -nodes -keyout private.key -out csrnam
 3.检查有以下两个文件
 ![](use_godday_code_ssl/d907d07e-bbf9-47f8-9cc7-158a93319b20.png)
 
-## 购买证书
+## 三、购买证书
 [godaddy官网传送门](https://sg.godaddy.com/zh/offers/domains/godaddy-b/cnfos "godaddy官网传送门")
 
 以下步骤按照官网提示来即可，如果遇到不懂的，请致电中国客服：400-842-8288（客服小姐姐很用心）：
@@ -48,7 +51,7 @@ openssl req -new -SHA256 -newkey rsa:2048 -nodes -keyout private.key -out csrnam
 1. 填写CSR
 2. 提交企业认证资料
 
-## 导入证书
+## 四、导入证书
 ### 下载证书
 认证成功后，进入godaddy产品页，可看到如下界面：
 ![](use_godday_code_ssl/b6a10e89-c556-4fef-8db0-518386642f77.png)
@@ -68,7 +71,7 @@ openssl req -new -SHA256 -newkey rsa:2048 -nodes -keyout private.key -out csrnam
 此时，个人-证书里就出现我们购买好的证书了。
 ![](use_godday_code_ssl/3f310209-9a59-4ca8-af62-29aa046d601b.png)
 
-## 应用签名
+## 五、应用签名
 ### 安装CA根证书
 [CA根证书主页传送门](http://www.cacert.org/index.php?id=3 "CA根证书主页传送门")
 1. 下载DER格式
