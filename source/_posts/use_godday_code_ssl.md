@@ -38,7 +38,7 @@ openssl req -new -SHA256 -newkey rsa:2048 -nodes -keyout private.key -out csrnam
 |emailAddress|-|邮箱||
 
 3.检查有以下两个文件
-![](用godaddy的SSL代码证书给exe文件签名/d907d07e-bbf9-47f8-9cc7-158a93319b20.png)
+![](use_godday_code_ssl/d907d07e-bbf9-47f8-9cc7-158a93319b20.png)
 
 ## 购买证书
 [godaddy官网传送门](https://sg.godaddy.com/zh/offers/domains/godaddy-b/cnfos "godaddy官网传送门")
@@ -51,9 +51,9 @@ openssl req -new -SHA256 -newkey rsa:2048 -nodes -keyout private.key -out csrnam
 ## 导入证书
 ### 下载证书
 认证成功后，进入godaddy产品页，可看到如下界面：
-![](用godaddy的SSL代码证书给exe文件签名/b6a10e89-c556-4fef-8db0-518386642f77.png)
+![](use_godday_code_ssl/b6a10e89-c556-4fef-8db0-518386642f77.png)
 点击下载即可，解压后会有以下文件：
-![](用godaddy的SSL代码证书给exe文件签名/9768df5f-8fbb-4ea6-8816-05da9cd5ed99.png)
+![](use_godday_code_ssl/9768df5f-8fbb-4ea6-8816-05da9cd5ed99.png)
 
 ### 导入证书
 1. 按键 **win+R**, 输入 **mmc**, 打开**Microsoft管理控制台**
@@ -66,13 +66,13 @@ openssl req -new -SHA256 -newkey rsa:2048 -nodes -keyout private.key -out csrnam
 8.  点击**完成**
 
 此时，个人-证书里就出现我们购买好的证书了。
-![](用godaddy的SSL代码证书给exe文件签名/3f310209-9a59-4ca8-af62-29aa046d601b.png)
+![](use_godday_code_ssl/3f310209-9a59-4ca8-af62-29aa046d601b.png)
 
 ## 应用签名
 ### 安装CA根证书
 [CA根证书主页传送门](http://www.cacert.org/index.php?id=3 "CA根证书主页传送门")
 1. 下载DER格式
-![](用godaddy的SSL代码证书给exe文件签名/4c529a06-bbe7-42e1-8ed4-fd182e76a4b4.png)
+![](use_godday_code_ssl/4c529a06-bbe7-42e1-8ed4-fd182e76a4b4.png)
 2. 安装证书
 与安装godaddy证书步骤一致。
 
@@ -88,7 +88,7 @@ CA根证书导出同上。
 
 ### 生成PFX证书
 1. 生成前，检查有以下四个文件：
-![](用godaddy的SSL代码证书给exe文件签名/5802b0ce-f0d8-4b53-b32c-b0ff0dc8d9fd.png)
+![](use_godday_code_ssl/5802b0ce-f0d8-4b53-b32c-b0ff0dc8d9fd.png)
 两份证书文件，一份申请证书文件，一份秘钥
 
 2. 打开git bash,执行以下命令
@@ -105,6 +105,6 @@ SignTool sign /f certificate.pfx /p yourpassword /tr http://tsa.starfieldtech.co
 ```
 
 2. 检查exe属性
-![](用godaddy的SSL代码证书给exe文件签名/79034f40-ed2e-4939-9601-a065908a55c2.png)
+![](use_godday_code_ssl/79034f40-ed2e-4939-9601-a065908a55c2.png)
 
 大功告成！
