@@ -2,7 +2,7 @@
 title: 高性能python爬虫心得
 tags: [python,爬虫]
 date: 2018-06-16 21:53:31
-categories: 技术
+categories: technology
 description: 本人在一家大数据公司从事python研发工程师工作，其中有较长的时间从事爬虫的开发工作，其中有很多心得（踏坑）体会想和大家分享，所以书写此博文以做交流。
 toc: true
 ---

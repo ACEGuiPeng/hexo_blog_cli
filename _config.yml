@@ -41,7 +41,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
 
 # Home page setting
@@ -78,7 +78,14 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: rsync
+  host: 166.62.10.141
+  user: k71yygchvb8o
+  root: /home/k71yygchvb8o/public
+  port: 22
+  delete: true
+  verbose: true
+  ignore_errors: false
 
 jsonContent:
     meta: false

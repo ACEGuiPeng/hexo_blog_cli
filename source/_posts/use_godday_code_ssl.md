@@ -1,8 +1,8 @@
 ---
 title: 用godaddy的SSL代码证书给exe文件签名
 date: 2019-01-17 20:04:46
-tags: [godaddy,ssl,exe,签名]
-categories: 教程
+tags: [godaddy,ssl,exe,sign]
+categories: guide
 description: 为保护公司自己开发的exe文件，给程序加了壳，但是杀毒软件报毒。没办法，去godady买了SSL代码证书给exe签名。以下是签名不完全指南，以作备忘。
 toc: true
 ---
