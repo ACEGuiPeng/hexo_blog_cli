@@ -329,7 +329,7 @@ session.query(Users).filter(Users.id > 2).delete()
 session.commit()
 ```
 ## 4 多线程场景下使用（前后台）
-### 场景1：前端查询，后台插入
+### 4.1 场景1：前端查询，后台插入
 当后台插入数据时，前端查询要插入的数据，此时出现这个错误
 
 ```python
@@ -366,10 +366,10 @@ sqlalchemy.exc.InternalError: (pymysql.err.InternalError)
 Packet sequence number wrong - got 128 expected 1 (Background on this error at: http://sqlalche.me/e/2j85)
 
 ```
-### 原因
+#### 4.1.1 原因
 google查出是因为pymysql不支持多线程（电梯：https://github.com/PyMySQL/PyMySQL/issues/425） 
 
-### 场景2：多线程/多进程共享engine
+### 4.2 场景2：多线程/多进程共享engine
 其中一个线程完成了插入，有时会导致另外一个线程丢失连接，错误如下
 
 ```python
@@ -398,10 +398,10 @@ Traceback (most recent call last):
 sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) 
 (2013, 'Lost connection to MySQL server during query') (Background on this error at: http://sqlalche.me/e/e3q8)
 ```
-### 原因
+#### 4.2.1 原因
 google查出是因为mysql的session与connection是一一对应的，当其中一个session关闭的时候，connection也会关闭。如果另外一个线程使用了相同的的connection，就会导致丢失连接
 
-### 导致现象的代码
+### 4.3 导致现象的代码
 
 ```python
 class MysqlWrapper(object):
@@ -450,7 +450,7 @@ class MysqlWrapper(object):
     # 主要问题代码结束
 ```
 
-## 解决方案
+### 4.4 解决方案
 简单来讲，就是一个线程分配一个connection,使得线程之间连接互不影响,修正后的代码如下
 
 ```python
